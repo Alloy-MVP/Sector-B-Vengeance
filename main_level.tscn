@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://c60508weruq26" path="res://Freddy.gd" id="12_do8ha"]
 [ext_resource type="Script" uid="uid://bm4c5c2wjtcc8" path="res://Bonnie.gd" id="13_do8ha"]
 [ext_resource type="Script" uid="uid://cl8vudjv5f67s" path="res://Foxy.gd" id="13_htena"]
+[ext_resource type="PackedScene" uid="uid://kdmur2is3ds2" path="res://pause_gui.tscn" id="14_htena"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6614m"]
 albedo_color = Color(0.14858034, 0, 0.97411805, 1)
@@ -373,3 +374,6 @@ target_position = Vector3(0, 0, -20)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=87220261]
 environment = SubResource("Environment_do8ha")
+
+[node name="Pause_GUI" parent="." unique_id=714919878 instance=ExtResource("14_htena")]
+follow_viewport_enabled = true

@@ -3,17 +3,19 @@ extends Node3D
 @onready var Bonnie = $Bonnie
 @onready var Freddy = $Freddy
 @onready var Foxy = $Foxy
+@onready var GUI = $Player_GUI
 
 var Bonnie_Chasing_Speed: float = 5.0
 var Freddy_Chasing_Speed: float = 5.0
 var Foxy_Chasing_Speed: float = 5.0
 var Player_Speed: float = 10.0
+var frozen: bool = false
 
 func _ready() -> void:
 	Bonnie.process_mode = Node.PROCESS_MODE_DISABLED
 	Freddy.process_mode = Node.PROCESS_MODE_DISABLED
 	Foxy.process_mode = Node.PROCESS_MODE_DISABLED
-	night5()
+	night1()
 
 
 func night1(): #Bonnie (5)
@@ -55,7 +57,6 @@ func night_over():
 	Bonnie.process_mode = Node.PROCESS_MODE_DISABLED
 	Freddy.process_mode = Node.PROCESS_MODE_DISABLED
 	Foxy.process_mode = Node.PROCESS_MODE_DISABLED
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

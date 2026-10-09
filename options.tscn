@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dvi6t0c2pn4ie"]
+
+[ext_resource type="Script" uid="uid://vexb8c30hyie" path="res://options.gd" id="1_5v8ap"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=9947868]
+process_mode = 3
+layer = 5
+script = ExtResource("1_5v8ap")
+
+[node name="Control" type="Control" parent="." unique_id=1769136193]
+z_index = 20
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Control" unique_id=2084544548]
+layout_mode = 1
+offset_right = 177.0
+offset_bottom = 156.0
+current_tab = 0
+
+[node name="Video" type="VBoxContainer" parent="Control/TabContainer" unique_id=761447800]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Fullscreen" type="CheckButton" parent="Control/TabContainer/Video" unique_id=2100431669]
+layout_mode = 2
+text = "Fullscreen
+"
+
+[node name="V-Sync" type="CheckButton" parent="Control/TabContainer/Video" unique_id=1387784763]
+layout_mode = 2
+text = "V-Sync"
+
+[node name="Resolution" type="OptionButton" parent="Control/TabContainer/Video" unique_id=913750309]
+layout_mode = 2
+item_count = 10
+popup/item_0/text = "800x600"
+popup/item_0/id = 0
+popup/item_1/text = "1024x600"
+popup/item_1/id = 1
+popup/item_2/text = "1600x900"
+popup/item_2/id = 2
+popup/item_3/text = "1440x900"
+popup/item_3/id = 3
+popup/item_4/text = "1280x720"
+popup/item_4/id = 4
+popup/item_5/text = "1536x864"
+popup/item_5/id = 5
+popup/item_6/text = "1366x780"
+popup/item_6/id = 6
+popup/item_7/text = "1920x1080"
+popup/item_7/id = 7
+popup/item_8/text = "2560x1440"
+popup/item_8/id = 8
+popup/item_9/text = "3840x2160"
+popup/item_9/id = 9
+
+[node name="Max Framerate" type="SpinBox" parent="Control/TabContainer/Video" unique_id=1071284172]
+layout_mode = 2
+prefix = "Max Framerate"
+
+[node name="Graphics" type="VBoxContainer" parent="Control/TabContainer" unique_id=226808187]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Save" type="Button" parent="Control" unique_id=913797982]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 617.0
+offset_right = 45.0
+offset_bottom = 648.0
+text = "Save"
+
+[connection signal="toggled" from="Control/TabContainer/Video/Fullscreen" to="." method="Fullscreen_Toggle"]
+[connection signal="toggled" from="Control/TabContainer/Video/V-Sync" to="." method="_on_v_sync_toggled"]
+[connection signal="item_selected" from="Control/TabContainer/Video/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="value_changed" from="Control/TabContainer/Video/Max Framerate" to="." method="_on_max_framerate_value_changed"]
+[connection signal="pressed" from="Control/Save" to="." method="_on_save_pressed"]

@@ -4,10 +4,13 @@
 [ext_resource type="Script" uid="uid://b312rrg8yo150" path="res://animatronic_perspective.gd" id="2_100ct"]
 
 [node name="Player_GUI" type="CanvasLayer" unique_id=586660666]
+process_mode = 3
+layer = 3
 follow_viewport_enabled = true
 script = ExtResource("1_ogtmc")
 
 [node name="Player_GUI_Control" type="Control" parent="." unique_id=743841269]
+z_index = 5
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4

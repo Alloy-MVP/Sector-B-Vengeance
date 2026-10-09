@@ -9,11 +9,12 @@ const JUMP_VELOCITY = 4.5
 var SPRINTING: bool = false
 
 func _ready() -> void:
-	Bonnie.process_mode = Node.PROCESS_MODE_DISABLED
+	pass
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_flashlight"):
 		Flashlight.visible = not Flashlight.visible
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
