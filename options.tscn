@@ -63,10 +63,79 @@ popup/item_9/id = 9
 layout_mode = 2
 prefix = "Max Framerate"
 
+[node name="FOV" type="HSlider" parent="Control/TabContainer/Video" unique_id=1182241187]
+layout_mode = 2
+min_value = 30.0
+value = 75.0
+
+[node name="Label" type="Label" parent="Control/TabContainer/Video/FOV" unique_id=1302473509]
+layout_mode = 0
+offset_left = 177.0
+offset_top = -5.0
+offset_right = 235.0
+offset_bottom = 18.0
+text = "FOV: 75"
+
+[node name="Brightness" type="HSlider" parent="Control/TabContainer/Video" unique_id=2077858202]
+layout_mode = 2
+min_value = 0.2
+max_value = 2.0
+step = 0.02
+value = 1.0
+
+[node name="Label" type="Label" parent="Control/TabContainer/Video/Brightness" unique_id=1433391438]
+layout_mode = 0
+offset_left = 177.0
+offset_top = -6.0
+offset_right = 217.0
+offset_bottom = 17.0
+text = "Brightness: 50%"
+
 [node name="Graphics" type="VBoxContainer" parent="Control/TabContainer" unique_id=226808187]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="Fog" type="CheckButton" parent="Control/TabContainer/Graphics" unique_id=662316673]
+layout_mode = 2
+text = "Fog"
+
+[node name="Glow" type="CheckButton" parent="Control/TabContainer/Graphics" unique_id=1551442928]
+layout_mode = 2
+text = "Glow"
+
+[node name="Ambient Occlusion" type="CheckButton" parent="Control/TabContainer/Graphics" unique_id=1587292357]
+layout_mode = 2
+text = "Ambient Occlusion"
+
+[node name="Downscaling" type="HSlider" parent="Control/TabContainer/Graphics" unique_id=582782735]
+layout_mode = 2
+min_value = 0.25
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label" type="Label" parent="Control/TabContainer/Graphics/Downscaling" unique_id=408444176]
+layout_mode = 0
+offset_left = 177.0
+offset_top = -4.0
+offset_right = 310.0
+offset_bottom = 19.0
+text = "Resolution: 100%"
+
+[node name="Anisotropic Filtering" type="OptionButton" parent="Control/TabContainer/Graphics" unique_id=770710344]
+layout_mode = 2
+item_count = 5
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "4"
+popup/item_2/id = 2
+popup/item_3/text = "8"
+popup/item_3/id = 3
+popup/item_4/text = "16"
+popup/item_4/id = 4
 
 [node name="Save" type="Button" parent="Control" unique_id=913797982]
 layout_mode = 0
@@ -80,4 +149,11 @@ text = "Save"
 [connection signal="toggled" from="Control/TabContainer/Video/V-Sync" to="." method="_on_v_sync_toggled"]
 [connection signal="item_selected" from="Control/TabContainer/Video/Resolution" to="." method="_on_resolution_item_selected"]
 [connection signal="value_changed" from="Control/TabContainer/Video/Max Framerate" to="." method="_on_max_framerate_value_changed"]
+[connection signal="value_changed" from="Control/TabContainer/Video/FOV" to="." method="_on_fov_value_changed"]
+[connection signal="value_changed" from="Control/TabContainer/Video/Brightness" to="." method="_on_brightness_value_changed"]
+[connection signal="toggled" from="Control/TabContainer/Graphics/Fog" to="." method="_on_fog_toggled"]
+[connection signal="toggled" from="Control/TabContainer/Graphics/Glow" to="." method="_on_glow_toggled"]
+[connection signal="toggled" from="Control/TabContainer/Graphics/Ambient Occlusion" to="." method="_on_ambient_occlusion_toggled"]
+[connection signal="value_changed" from="Control/TabContainer/Graphics/Downscaling" to="." method="_on_downscaling_value_changed"]
+[connection signal="item_selected" from="Control/TabContainer/Graphics/Anisotropic Filtering" to="." method="_on_anisotropic_filtering_item_selected"]
 [connection signal="pressed" from="Control/Save" to="." method="_on_save_pressed"]

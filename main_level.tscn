@@ -84,6 +84,8 @@ size = Vector3(1, 1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhmka"]
 albedo_color = Color(0.7397895, 1.9372628e-06, 9.62615e-07, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5fjre"]
 material = SubResource("StandardMaterial3D_uhmka")
@@ -135,8 +137,13 @@ albedo_color = Color(0.9529412, 0.40784314, 0, 1)
 material = SubResource("StandardMaterial3D_htena")
 height = 3.0
 
-[sub_resource type="Environment" id="Environment_do8ha"]
-ambient_light_energy = 0.5
+[sub_resource type="Environment" id="Environment_htena"]
+background_energy_multiplier = 2.0
+tonemap_white = 3.0
+glow_intensity = 1.0
+glow_bloom = 0.2
+fog_light_color = Color(0.19215687, 0.21176471, 0.23921569, 1)
+fog_light_energy = 0.5
 
 [node name="Main Level" type="Node3D" unique_id=1792138898]
 script = ExtResource("1_4mnpp")
@@ -154,7 +161,7 @@ shape = SubResource("BoxShape3D_6nngp")
 [node name="Camera_Bobbing" type="AnimationPlayer" parent="Player" unique_id=1197940223]
 libraries/ = SubResource("AnimationLibrary_4mnpp")
 
-[node name="Player_Camera" type="Camera3D" parent="Player" unique_id=666370516]
+[node name="Player_Camera" type="Camera3D" parent="Player" unique_id=666370516 groups=["Player Camera"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("2_bhu08")
 
@@ -372,8 +379,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="RayCast3D" type="RayCast3D" parent="Foxy/Head" unique_id=1225279429]
 target_position = Vector3(0, 0, -20)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=87220261]
-environment = SubResource("Environment_do8ha")
-
 [node name="Pause_GUI" parent="." unique_id=714919878 instance=ExtResource("14_htena")]
 follow_viewport_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1822578592 groups=["Ambient Lighting"]]
+environment = SubResource("Environment_htena")
