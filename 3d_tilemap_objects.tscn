@@ -1,64 +1,146 @@
 [gd_scene format=3 uid="uid://d2vka8nuj7iy6"]
 
-[ext_resource type="Material" uid="uid://d21dphdbl4tdm" path="res://wall.tres" id="1_eoomg"]
-[ext_resource type="Material" uid="uid://c5dx23wgc64k2" path="res://ceiling.tres" id="2_dhca8"]
-[ext_resource type="Material" uid="uid://beilg7u81cmwj" path="res://floor.tres" id="3_tlw6s"]
+[ext_resource type="Texture2D" uid="uid://c6y6lnq1da2sh" path="res://Models/Floor_checkers.png" id="3_dhca8"]
+[ext_resource type="Texture2D" uid="uid://bf5lljnqceavw" path="res://Models/floorcarpet_arcade_carpet_1_512.png" id="4_dhca8"]
+[ext_resource type="Texture2D" uid="uid://ci6t2adedh6qq" path="res://Models/ceiling_baseceilling.png" id="4_tlw6s"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_wgq22"]
-lightmap_size_hint = Vector2i(26, 66)
-size = Vector3(4, 0.5, 4)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y02ne"]
+resource_name = "Checkerboard"
+cull_mode = 2
+albedo_texture = ExtResource("3_dhca8")
+roughness = 0.5
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8dfr7"]
-points = PackedVector3Array(-2.031746, -0.28169006, -2.0317461, 2.031684, 0.2896266, 2.0317461, 2.031684, -0.28169006, 2.0317461, 2.031684, 0.2896266, -2.0317461, -2.031746, 0.2896266, 2.0317461, -2.031746, -0.28169006, 2.0317461, 2.031684, -0.28169006, -2.0317461, -2.031746, 0.2896266, -2.0317461)
+[sub_resource type="ArrayMesh" id="ArrayMesh_dhxyq"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Checkerboard",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
 
-[sub_resource type="QuadMesh" id="QuadMesh_l83t3"]
-material = ExtResource("2_dhca8")
-size = Vector2(4, 4)
-orientation = 1
+[sub_resource type="ArrayMesh" id="ArrayMesh_tlw6s"]
+resource_name = "Floor_Plane"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_y02ne"),
+"name": "Checkerboard",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dhxyq")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_87m0f"]
-points = PackedVector3Array(2.0317461, 0.031746034, 2.0317461, -2.0317461, -0.031746034, -2.0317461, -2.0317461, 0.031746034, -2.0317461, 2.0317461, -0.031746034, -2.0317461, -2.0317461, -0.031746034, 2.0317461, -2.0317461, 0.031746034, 2.0317461, 2.0317461, 0.031746034, -2.0317461, 2.0317461, -0.031746034, 2.0317461)
+[sub_resource type="BoxShape3D" id="BoxShape3D_dhca8"]
+size = Vector3(2, 0.5, 2)
 
-[sub_resource type="QuadMesh" id="QuadMesh_eqror"]
-material = ExtResource("3_tlw6s")
-size = Vector2(4, 4)
-orientation = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8budt"]
+resource_name = "Carpet"
+cull_mode = 2
+albedo_texture = ExtResource("4_dhca8")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bswfn"]
-points = PackedVector3Array(2.0317461, 0.031746034, 2.0317461, -2.0317461, -0.031746034, -2.0317461, -2.0317461, 0.031746034, -2.0317461, 2.0317461, -0.031746034, -2.0317461, -2.0317461, -0.031746034, 2.0317461, -2.0317461, 0.031746034, 2.0317461, 2.0317461, 0.031746034, -2.0317461, 2.0317461, -0.031746034, 2.0317461)
+[sub_resource type="ArrayMesh" id="ArrayMesh_krr80"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Carpet",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
 
-[sub_resource type="BoxMesh" id="BoxMesh_eoomg"]
-size = Vector3(6, 0.1, 0.5)
+[sub_resource type="ArrayMesh" id="ArrayMesh_wgq22"]
+resource_name = "floorcarpet_Plane"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_8budt"),
+"name": "Carpet",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_krr80")
 
-[node name="3D_Tilemap_Objects" type="Node3D" unique_id=85623460]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vk2as"]
+resource_name = "Ceiling"
+cull_mode = 2
+albedo_texture = ExtResource("4_tlw6s")
+metallic = 0.2
+roughness = 0.5
 
-[node name="Wall" type="MeshInstance3D" parent="." unique_id=1641761280]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1, 0)
-mesh = SubResource("BoxMesh_wgq22")
-surface_material_override/0 = ExtResource("1_eoomg")
+[sub_resource type="ArrayMesh" id="ArrayMesh_j1ieq"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Ceiling",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Wall" unique_id=1627911518]
+[sub_resource type="ArrayMesh" id="ArrayMesh_l83t3"]
+resource_name = "ceiling_Plane"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_vk2as"),
+"name": "Ceiling",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_j1ieq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D" unique_id=1091454553]
-shape = SubResource("ConvexPolygonShape3D_8dfr7")
+[node name="Wall_Floor_Ceiling" type="Node3D" unique_id=85623460]
 
-[node name="Ceiling" type="MeshInstance3D" parent="." unique_id=698886310]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-mesh = SubResource("QuadMesh_l83t3")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Ceiling" unique_id=896484699]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling/StaticBody3D" unique_id=908150492]
-shape = SubResource("ConvexPolygonShape3D_87m0f")
-
-[node name="Floor" type="MeshInstance3D" parent="." unique_id=173507427]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-mesh = SubResource("QuadMesh_eqror")
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1513305441]
+mesh = SubResource("ArrayMesh_tlw6s")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=1407233039]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=260508422]
-shape = SubResource("ConvexPolygonShape3D_bswfn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_dhca8")
 
-[node name="Ceiling Lights" type="MeshInstance3D" parent="." unique_id=1160849777]
-mesh = SubResource("BoxMesh_eoomg")
+[node name="Floor Carpet" type="MeshInstance3D" parent="." unique_id=108070198]
+mesh = SubResource("ArrayMesh_wgq22")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor Carpet" unique_id=13115722]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor Carpet/StaticBody3D" unique_id=900468215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_dhca8")
+
+[node name="Ceiling" type="MeshInstance3D" parent="." unique_id=483253876]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_l83t3")

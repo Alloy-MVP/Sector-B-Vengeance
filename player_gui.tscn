@@ -24,6 +24,7 @@ offset_bottom = 23.0
 metadata/_edit_use_anchors_ = true
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=979032497]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -36,7 +37,7 @@ grow_vertical = 0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=164918773]
 handle_input_locally = false
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Animatronic Camera" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=722829072]
 script = ExtResource("2_100ct")

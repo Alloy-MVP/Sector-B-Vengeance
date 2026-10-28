@@ -37,18 +37,21 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		
-		if not Camera_Bobbing.is_playing():
-			Camera_Bobbing.play("View_Bobbing")
-		
-		if Input.is_action_pressed("sprint"):
-			Camera_Bobbing.speed_scale = 1.7
-		else:
-			Camera_Bobbing.speed_scale = 1
-		
+
 	else:
-		Camera_Bobbing.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+	var moving = Vector2(velocity.x, velocity.z).length()
+	if moving > 1:
+		if not Camera_Bobbing.is_playing() and moving > 1:
+			Camera_Bobbing.play("View_Bobbing")
+		
+		if SPRINTING:
+			Camera_Bobbing.speed_scale = SPEED / 9
+		else:
+			Camera_Bobbing.speed_scale = SPEED / 13
+	else:
+		Camera_Bobbing.stop()

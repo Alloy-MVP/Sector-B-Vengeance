@@ -15,7 +15,7 @@ func _ready() -> void:
 	Bonnie.process_mode = Node.PROCESS_MODE_DISABLED
 	Freddy.process_mode = Node.PROCESS_MODE_DISABLED
 	Foxy.process_mode = Node.PROCESS_MODE_DISABLED
-	night1()
+	night4()
 
 
 func night1(): #Bonnie (5)

@@ -19,7 +19,7 @@ var chasing: bool = false
 var roaming: bool = true
 var target_path: bool = false
 var raycast_timer = 0.0
-var raycast_update_time = 0.2
+var raycast_update_time = 0.05
 var stuck_timer = 0.0
 var position_update: Vector3 = Vector3(0, 0, 0)
 
@@ -70,8 +70,9 @@ func roam():
 func animatronic_looking_at_player_check(delta):
 	raycast_update_time -= delta
 	if raycast_update_time <= raycast_timer:
-		animatronic_raycast.look_at(Vector3(player.global_position.x, 0, player.global_position.z), Vector3.UP)
-		raycast_update_time = 0.2
+		animatronic_raycast.look_at(player.global_position, Vector3.UP)
+		animatronic_raycast.force_raycast_update()
+		raycast_update_time = 0.05
 	if animatronic_camera.is_position_in_frustum(player.global_position) and animatronic_raycast.is_colliding() and animatronic_raycast.get_collider() == player:
 		if roaming:
 			seen_time += delta

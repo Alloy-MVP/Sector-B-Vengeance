@@ -11,7 +11,7 @@ func _ready() -> void:
 	interact()
 
 func interact():
-	var right_door_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	var right_door_tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	var right_door_slide: Vector3
 	if open_door:
 		right_door_slide = right_door_position + Vector3(0, 4, 0)
@@ -19,9 +19,9 @@ func interact():
 		right_door_slide = right_door_position
 	
 	right_door_tween.tween_property(Right_Door, "position", right_door_slide, 0.6)
+	await right_door_tween.finished
 	
 	if not open_door:
-		await get_tree().create_timer(0.3).timeout
 		player_camera.door_shake()
 	open_door = not open_door
 
