@@ -14,3 +14,11 @@ Go to <https://alloymvp.itch.io/sector-b-vengeance>, the web version is easiest 
 - Power system
 - Camera system
 - Seats/Benches, Decorations, and Posters.
+
+Credits:
+
+Carpet texture:
+<https://opengameart.org/content/arcade-carpet-textures-arcadecarpet1512png>
+
+Fan model:
+<https://sketchfab.com/3d-models/fnaf-desk-fan-ef2e767b20b142d087cde66164d86107>
